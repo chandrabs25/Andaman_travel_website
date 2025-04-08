@@ -3,13 +3,13 @@
   "target": "preview",
   "argv": [
     "/usr/bin/node",
-    "/home/chandra/reach_andaman/andaman-explorer-final/node_modules/.bin/vercel",
+    "/home/chandra/.npm/_npx/69f9afb961c37556/node_modules/.bin/vc",
     "build"
   ],
   "builds": [
     {
       "require": "@vercel/next",
-      "requirePath": "/home/chandra/reach_andaman/andaman-explorer-final/node_modules/@vercel/next/dist/index",
+      "requirePath": "/home/chandra/.npm/_npx/69f9afb961c37556/node_modules/@vercel/next/dist/index",
       "apiVersion": 2,
       "src": "package.json",
       "use": "@vercel/next",
