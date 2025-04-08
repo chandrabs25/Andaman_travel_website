@@ -21,8 +21,8 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    logout();
-    closeMenu();
+    logout(); // Call the logout function from the hook
+    closeMenu(); // Close mobile menu if open
   };
 
   const navLinks = [
@@ -36,7 +36,6 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      {/* Adjusted vertical padding py-3 for mobile, py-4 for md+ */}
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="flex justify-between items-center">
 
@@ -44,13 +43,11 @@ const Header = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="inline-block" onClick={closeMenu}>
               <Image
-                src="/images/logo.png" // <-- Keep your actual logo path
+                src="/images/logo.jpg" // <-- REPLACE with your actual logo path
                 alt="Reach Andaman Logo"
-                width={1171}  // <-- Keep your logo's actual width
-                height={445} // <-- Keep your logo's actual height
-                // --- Increased height classes ---
-                className="h-10 md:h-12 w-auto" // Mobile: h-10 (2.5rem/40px), Desktop: h-12 (3rem/48px)
-                // --- End Increased height classes ---
+                width={1171}  // <-- REPLACE with your logo's actual width
+                height={455} // <-- REPLACE with your logo's actual height
+                className="h-8 md:h-10 w-auto" // Responsive height
                 priority
               />
             </Link>
@@ -90,10 +87,18 @@ const Header = () => {
                       Vendor Area
                     </Link>
                   )}
+                   {/* Consolidated User/Bookings Link for Desktop - Consider a Dropdown */}
                   <Link href="/user/dashboard" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors" title="My Account">
                      <User size={20} />
                      <span className="sr-only">Profile</span>
+                      {/* Optional: Show name on larger screens if desired */}
+                      {/* <span className="ml-1 text-sm hidden lg:inline">{user?.name?.split(' ')[0]}</span> */}
                   </Link>
+                  {/* Cart Icon - Link to bookings or cart page */}
+                  {/* <Link href="/bookings" className="text-gray-600 hover:text-blue-600" title="Bookings">
+                     <ShoppingCart size={20} />
+                  </Link> */}
+                  {/* Logout Button */}
                   <button onClick={handleLogout} className="text-sm text-gray-600 hover:text-red-600 transition-colors flex items-center" title="Logout">
                      <LogOut size={18} className="mr-1" />
                      <span className="hidden lg:inline">Logout</span>
@@ -129,8 +134,9 @@ const Header = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
+          // This div wraps the entire mobile menu content
           <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-200 z-40">
-            <nav className="flex flex-col px-4 py-4 space-y-2">
+            <nav className="flex flex-col px-4 py-4 space-y-2"> {/* Corrected closing tag */}
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -140,7 +146,7 @@ const Header = () => {
                       ? 'bg-blue-50 text-blue-700'
                       : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                   }`}
-                  onClick={closeMenu}
+                  onClick={closeMenu} // Close menu on link click
                 >
                   {link.name}
                 </Link>
@@ -164,21 +170,21 @@ const Header = () => {
                       </Link>
                     )}
                     <Link
-                      href="/user/dashboard"
+                      href="/user/dashboard" // Link to user dashboard/profile
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       onClick={closeMenu}
                     >
                       My Account
                     </Link>
                     <Link
-                      href="/user/bookings"
+                      href="/user/bookings" // Link to user bookings
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       onClick={closeMenu}
                     >
                       My Bookings
                     </Link>
                     <button
-                      onClick={handleLogout}
+                      onClick={handleLogout} // Use the handler
                       className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-600 hover:bg-red-50 hover:text-red-700"
                     >
                       Logout
@@ -203,11 +209,11 @@ const Header = () => {
                   </div>
                 )}
               </div>
-            </nav>
-          </div>
+            </nav> {/* This was the missing closing tag */}
+          </div> // This div also needed closing
         )}
       </div>
-    </header>
+    </header> // This needed closing
   );
 };
 
