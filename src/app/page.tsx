@@ -54,7 +54,7 @@ export default function Home() {
           <div className="absolute inset-0 z-0">
             {/* Desktop Image */}
             <Image
-              src="/images/hero-min.webp" // Your desktop image
+              src="/images/hero.PNG" // Your desktop image
               alt="Andaman Islands scenery - Desktop"
               fill
               className="object-cover hidden md:block"
