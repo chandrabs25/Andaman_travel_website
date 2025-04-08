@@ -1,21 +1,11 @@
-
-
-compatibility_date = "2024-09-23" 
-compatibility_flags = ["nodejs_compat"] 
-
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
 
 [[d1_databases]]
-binding = "DB" 
-database_name = "random_id" 
-database_id = "10183848-4cc7-4198-b8c7-1374015ab09c" 
-
-
+binding = "DB"
+database_name = "random_id"
+database_id = "10183848-4cc7-4198-b8c7-1374015ab09c"
 
 [build]
 command = "npm run build"
-
-
-[site]
-bucket = ".next/standalone"
-
-
+publish = ".next" # This is the crucial part for Pages
