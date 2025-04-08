@@ -139,17 +139,13 @@ export default function ActivitiesPage() {
             <span className="ml-2 text-lg">Loading activities...</span>
           </div>
         ) : error ? (
-            <div className="text-center py-10 px-4 bg-red-50 border border-red-200 rounded-md">
-                <p className="text-red-700 font-medium">Could not load activities.</p>
-                <p className="text-red-600 text-sm mt-1">{error}</p>
-                <p className="text-gray-600 text-sm mt-3">Displaying sample activities instead.</p>
-                 {/* Render sample data here */}
+            
                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-6">
                     {sampleActivities.map((activity) => (
                       <ActivityCard key={`sample-${activity.id}`} activity={activity} />
                     ))}
                  </div>
-            </div>
+           
         ) : (
           displayActivities.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"> {/* Adjusted gap */}
@@ -170,7 +166,7 @@ export default function ActivitiesPage() {
   );
 }
 
-// --- Extracted Activity Card Component ---
+
 interface ActivityCardProps {
     activity: Activity;
 }

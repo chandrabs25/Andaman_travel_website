@@ -25,8 +25,8 @@ export default function Home() {
    const popularActivities = [
     { id: 1, name: 'Scuba Diving', image: '/images/scuba.jpg', description: 'Explore vibrant coral reefs' },
     { id: 2, name: 'Sea Walking', image: '/images/sea-walking.jpg', description: 'Walk on the ocean floor' },
-    { id: 3, name: 'Kayaking', image: '/images/kayaking.jpg', description: 'Paddle through mangroves' },
-    { id: 4, name: 'Island Hopping', image: '/images/island-hopping.jpg', description: 'Explore multiple islands' },
+    { id: 3, name: 'Trekking', image: '/images/trekking.jpg', description: 'Trek through the lush forests...' },
+    { id: 4, name: 'Glass Bottom Boat Ride', image: '/images/glass-boat.jpg', description: 'View the colorful coral reefs...' },
   ];
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
