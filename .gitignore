@@ -41,3 +41,5 @@ coverage/
 # *.pyc
 # *.swp
 # *~
+codebase_contents.txt
+app.py
