@@ -45,8 +45,8 @@ const Header = () => {
               <Image
                 src="/images/logo.jpg" // <-- REPLACE with your actual logo path
                 alt="Reach Andaman Logo"
-                width={150}  // <-- REPLACE with your logo's actual width
-                height={40} // <-- REPLACE with your logo's actual height
+                width={1171}  // <-- REPLACE with your logo's actual width
+                height={455} // <-- REPLACE with your logo's actual height
                 className="h-8 md:h-10 w-auto" // Responsive height
                 priority
               />

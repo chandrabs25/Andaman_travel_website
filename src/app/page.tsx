@@ -52,7 +52,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {/* Desktop Image (Hidden on mobile, shown on medium screens and up) */}
           <Image
-            src="/images/hero.jpg" // Your desktop image
+            src="/images/hero.PNG" // Your desktop image
             alt="Andaman Islands scenery - Desktop"
             fill
             className="object-cover hidden md:block" // Hide on mobile, show on md+
@@ -60,7 +60,7 @@ export default function Home() {
           />
           {/* Mobile Image (Shown on mobile, hidden on medium screens and up) */}
           <Image
-            src="/images/hero-mobile.jpg" // Your mobile-specific image
+            src="/images/hero.PNG" // Your mobile-specific image
             alt="Andaman Islands scenery - Mobile"
             fill
             className="object-cover block md:hidden" // Show on mobile, hide on md+
