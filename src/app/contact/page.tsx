@@ -103,8 +103,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">Email</h3>
-                    <p className="text-gray-700">info@andamanexplorer.com</p>
-                    <p className="text-gray-700">support@andamanexplorer.com</p>
+                    <p className="text-gray-700">info@reachandaman.com</p>
+                    <p className="text-gray-700">support@reachandaman.com</p>
                   </div>
                 </div>
                 

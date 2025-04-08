@@ -19,7 +19,7 @@ export default function AboutPage() {
         
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
-            About Andaman Explorer
+            About Reach Andaman 
           </h1>
           <p className="text-xl text-white text-center max-w-2xl">
             Your trusted partner for unforgettable Andaman experiences
@@ -34,7 +34,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
             <div className="prose prose-lg max-w-none">
               <p>
-                Founded in 2018, Andaman Explorer was born out of a passion for the breathtaking beauty of the Andaman Islands and a desire to share this hidden paradise with travelers from around the world. What began as a small team of local guides has grown into a comprehensive travel platform dedicated to providing authentic and memorable experiences.
+                Founded in 2023, Reach Andaman was born out of a passion for the breathtaking beauty of the Andaman Islands and a desire to share this hidden paradise with travelers from around the world. What began as a small team of local guides has grown into a comprehensive travel platform dedicated to providing authentic and memorable experiences.
               </p>
               <p>
                 Our journey started when our founder, a native Andamanese, recognized the need for a reliable travel service that could showcase the islands' natural wonders while respecting their delicate ecosystems and supporting local communities. Today, we continue to uphold these values as we help travelers discover the magic of the Andamans.
@@ -46,7 +46,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
             <div className="prose prose-lg max-w-none">
               <p>
-                At Andaman Explorer, our mission is to provide exceptional travel experiences that connect visitors with the natural beauty, rich culture, and warm hospitality of the Andaman Islands. We are committed to:
+                At Reach Andaman, our mission is to provide exceptional travel experiences that connect visitors with the natural beauty, rich culture, and warm hospitality of the Andaman Islands. We are committed to:
               </p>
               <ul>
                 <li>Promoting sustainable tourism that preserves the islands' pristine environments</li>
@@ -94,7 +94,7 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold">Rajiv Sharma</h3>
+                <h3 className="text-xl font-semibold">Kanna</h3>
                 <p className="text-gray-600">Founder & CEO</p>
               </div>
               <div className="text-center">
@@ -106,7 +106,7 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold">Priya Patel</h3>
+                <h3 className="text-xl font-semibold">Elon Musk</h3>
                 <p className="text-gray-600">Head of Operations</p>
               </div>
               <div className="text-center">
@@ -118,7 +118,7 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold">Arun Kumar</h3>
+                <h3 className="text-xl font-semibold">Mia Khalifa</h3>
                 <p className="text-gray-600">Lead Tour Guide</p>
               </div>
               <div className="text-center">
@@ -130,7 +130,7 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold">Maya Reddy</h3>
+                <h3 className="text-xl font-semibold">Sunny Leone</h3>
                 <p className="text-gray-600">Customer Relations</p>
               </div>
             </div>

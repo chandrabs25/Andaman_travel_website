@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Andaman Travel</h3>
+            <h3 className="text-xl font-semibold mb-4">Reach Andaman Travel</h3>
             <p className="text-gray-300 mb-4">
               Your ultimate guide to exploring the beautiful Andaman Islands. We provide comprehensive travel information, booking services, and curated experiences.
             </p>
@@ -94,12 +94,12 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Phone size={18} className="mr-2" />
-                <span className="text-gray-300">+91 9876543210</span>
+                <span className="text-gray-300">+91 99999999</span>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2" />
                 <a href="mailto:info@andamantravel.com" className="text-gray-300 hover:text-white">
-                  info@andamantravel.com
+                  info@reachandaman.com
                 </a>
               </li>
               <li className="text-gray-300 mt-2">
@@ -111,7 +111,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>© {currentYear} Andaman Travel Platform. All rights reserved.</p>
+          <p>© {currentYear} Reach Andaman Travel Platform. All rights reserved.</p>
           <div className="mt-2 space-x-4">
             <Link href="/privacy-policy" className="hover:text-white">
               Privacy Policy
