@@ -22,3 +22,7 @@ command = "npm run build"
 # --- Cloudflare Pages specific settings ---
 [site]
 bucket = ".next/standalone"
+
+
+compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2024-09-23"
