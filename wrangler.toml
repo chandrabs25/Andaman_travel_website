@@ -8,4 +8,9 @@ database_id = "10183848-4cc7-4198-b8c7-1374015ab09c"
 
 [build]
 command = "npm run build"
-publish = ".next" # This is the crucial part for Pages
+publish = ".next" 
+
+name = "andaman-travel-website"
+compatibility_date = "2025-04-08"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
