@@ -1,0 +1,18 @@
+{
+  "runtime": "edge",
+  "name": "packages/[id]",
+  "deploymentTarget": "v8-worker",
+  "entrypoint": "index.js",
+  "assets": [],
+  "framework": {
+    "slug": "nextjs",
+    "version": "14.2.27"
+  },
+  "environment": {
+    "__NEXT_BUILD_ID": "_bVfOgkvKtK0yec9nEOT6",
+    "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "D1e/apF9hR+bjmXzlhvcAZ9uSPzUeUWQHEvIVoFDCLw=",
+    "__NEXT_PREVIEW_MODE_ID": "02e3a261db5b622f50ce9e4f3908740a",
+    "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "aa31e1b5dde65fe5666288575e79af06fddd768900d8b30ca8162719c9401470",
+    "__NEXT_PREVIEW_MODE_SIGNING_KEY": "4d36c1b13f76b2c689b7b70c1e076f5d5435c147383c6ac70f4d452db7d0db0c"
+  }
+}
