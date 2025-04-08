@@ -151,7 +151,9 @@ export default function ActivitiesPage() {
   // we use sampleActivities. Otherwise, use the fetched activities.
   // const displayActivities = error || activities.length === 0 ? sampleActivities : activities;
   // Let's refine this: Show API data if successful, otherwise show samples *if* there was an error.
-  const displayActivities = activities; // Primarily show fetched data
+  const displayActivities =
+  error || activities.length === 0 ? sampleActivities : activities;
+ // Primarily show fetched data
 
   return (
     <>
