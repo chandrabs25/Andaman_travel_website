@@ -9,7 +9,6 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Home() {
-  // ... (keep your existing state and data)
   const [destination, setDestination] = useState('');
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
@@ -22,12 +21,34 @@ export default function Home() {
     { id: 'baratang-island', name: 'Baratang Island', image: '/images/baratang.jpg', description: 'Limestone caves & mud volcanoes' },
   ];
 
+   // --- Reverted popularActivities to original ---
    const popularActivities = [
-    { id: 1, name: 'Scuba Diving', image: '/images/scuba.jpg', description: 'Explore vibrant coral reefs' },
-    { id: 2, name: 'Sea Walking', image: '/images/sea-walking.jpg', description: 'Walk on the ocean floor' },
-    { id: 3, name: 'Trekking', image: '/images/trekking.jpg', description: 'Trek through the lush forests...' },
-    { id: 4, name: 'Glass Bottom Boat Ride', image: '/images/glass-boat.jpg', description: 'View the colorful coral reefs...' },
+    {
+      id: 1,
+      name: 'Scuba Diving',
+      image: '/images/scuba.jpg',
+      description: 'Explore vibrant coral reefs and marine life',
+    },
+    {
+      id: 2,
+      name: 'Sea Walking',
+      image: '/images/sea-walking.jpg',
+      description: 'Walk on the ocean floor with specialized equipment',
+    },
+     {
+      id: 3, // Reverted
+      name: 'Trekking',
+      image: '/images/trekking.jpg', // Ensure this image exists
+      description: 'Trek through the lush forests of Andaman and discover hidden waterfalls.', // Original description
+    },
+    {
+      id: 4, // Reverted
+      name: 'Glass Bottom Boat Ride',
+      image: '/images/glass-boat.jpg', // Ensure this image exists
+      description: 'View the colorful coral reefs and marine life without getting wet.', // Original description
+    },
   ];
+  // --- End Reverted popularActivities ---
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,162 +59,108 @@ export default function Home() {
     if (travelers) params.append('travelers', travelers);
     window.location.href = `/search-results?${params.toString()}`;
   };
-  // ... (keep your existing handleSearch, featuredDestinations, popularActivities)
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[550px] md:h-[600px]">
-        {/* Background overlays */}
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
 
-        {/* --- Image Container --- */}
-        <div className="absolute inset-0 z-0">
-          {/* Desktop Image (Hidden on mobile, shown on medium screens and up) */}
-          <Image
-            src="/images/hero.PNG" // Your desktop image
-            alt="Andaman Islands scenery - Desktop"
-            fill
-            className="object-cover hidden md:block" // Hide on mobile, show on md+
-            priority // Prioritize loading on desktop
-          />
-          {/* Mobile Image (Shown on mobile, hidden on medium screens and up) */}
-          <Image
-            src="/images/hero.PNG" // Your mobile-specific image
-            alt="Andaman Islands scenery - Mobile"
-            fill
-            className="object-cover block md:hidden" // Show on mobile, hide on md+
-            priority // Also prioritize if mobile is the primary target
-          />
-        </div>
-        {/* --- End Image Container --- */}
+      {/* Hero Section Container */}
+      <section className="relative">
 
+        {/* Image Background Layer */}
+        <div className="relative h-[350px] sm:h-[450px] md:h-[600px] w-full">
+          <div className="absolute inset-0 bg-black/40 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10"></div>
+          <div className="absolute inset-0 z-0">
+            {/* Desktop Image */}
+            <Image
+              src="/images/hero-min.webp" // Ensure this path is correct
+              alt="Andaman Islands scenery - Desktop"
+              fill
+              className="object-cover hidden md:block"
+              priority
+            />
+            {/* Mobile Image */}
+            <Image
+              src="/images/hero-min.webp" // Ensure this path is correct and image exists
+              alt="Andaman Islands scenery - Mobile"
+              fill
+              className="object-cover block md:hidden"
+              priority
+            />
+          </div>
 
-        <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center relative z-20">
-           {/* Adjusted text sizes for mobile */}
-           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white text-center mb-4 md:mb-6"> Discover Paradise in Andaman </h1>
-           <p className="text-base sm:text-lg md:text-xl text-white text-center mb-6 md:mb-8 max-w-2xl"> Explore pristine beaches, vibrant coral reefs, and unforgettable experiences. </p> {/* Shortened */}
-
-          {/* Search Form (using the previous mobile-optimized version) */}
-          <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg p-4 md:p-6">
-            <form onSubmit={handleSearch}>
-               <div className="flex flex-col md:flex-row md:items-end gap-3 md:gap-4">
-
-                {/* Destination */}
-                <div className="flex-1 min-w-0">
-                  <label htmlFor="destination" className="block text-sm font-medium text-gray-700 mb-1"> Destination </label>
-                  <div className="flex items-center border border-gray-300 rounded-md focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 bg-white overflow-hidden">
-                    <MapPin className="ml-3 text-gray-400 flex-shrink-0 pointer-events-none" size={18} />
-                    <select
-                      id="destination"
-                      value={destination}
-                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setDestination(e.target.value)}
-                      className="pl-2 pr-8 py-2 w-full text-sm border-none focus:ring-0 bg-transparent appearance-none truncate"
-                      style={{ backgroundImage: 'none' }}
-                    >
-                      <option value="">Anywhere</option>
-                      {featuredDestinations.map(dest => (
-                        <option key={dest.id} value={dest.id}>{dest.name}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Start Date */}
-                <div className="flex-1 min-w-0">
-                   <label htmlFor="startDate" className="block text-sm font-medium text-gray-700 mb-1"> Start Date </label>
-                   <div className="flex items-center border border-gray-300 rounded-md focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 bg-white overflow-hidden">
-                       <Calendar className="ml-3 text-gray-400 flex-shrink-0 pointer-events-none" size={18} />
-                       <DatePicker
-                           selected={startDate}
-                           onChange={(date: Date | null) => setStartDate(date)}
-                           selectsStart
-                           startDate={startDate}
-                           endDate={endDate}
-                           minDate={new Date()}
-                           placeholderText="Start date"
-                           className="pl-2 pr-4 py-2 w-full text-sm border-none focus:ring-0 bg-transparent truncate"
-                           dateFormat="yyyy-MM-dd"
-                           required
-                        />
-                    </div>
-                 </div>
-
-                 {/* End Date */}
-                 <div className="flex-1 min-w-0">
-                   <label htmlFor="endDate" className="block text-sm font-medium text-gray-700 mb-1"> End Date </label>
-                    <div className="flex items-center border border-gray-300 rounded-md focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 bg-white overflow-hidden">
-                        <Calendar className="ml-3 text-gray-400 flex-shrink-0 pointer-events-none" size={18} />
-                        <DatePicker
-                           selected={endDate}
-                           onChange={(date: Date | null) => setEndDate(date)}
-                           selectsEnd
-                           startDate={startDate}
-                           endDate={endDate}
-                           minDate={startDate || new Date()}
-                           placeholderText="End date"
-                           className="pl-2 pr-4 py-2 w-full text-sm border-none focus:ring-0 bg-transparent truncate"
-                           dateFormat="yyyy-MM-dd"
-                           disabled={!startDate}
-                           required
-                        />
-                    </div>
-                 </div>
-
-                {/* Travelers */}
-                <div className="flex-1 min-w-0">
-                   <label htmlFor="travelers" className="block text-sm font-medium text-gray-700 mb-1"> Travelers </label>
-                   <div className="flex items-center border border-gray-300 rounded-md focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 bg-white overflow-hidden">
-                       <Users className="ml-3 text-gray-400 flex-shrink-0 pointer-events-none" size={18} />
-                       <select
-                         id="travelers"
-                         value={travelers}
-                         onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTravelers(e.target.value)}
-                         required
-                         className="pl-2 pr-8 py-2 w-full text-sm border-none focus:ring-0 bg-transparent appearance-none truncate"
-                         style={{ backgroundImage: 'none' }}
-                       >
-                         <option value="">Select</option>
-                         <option value="1">1 Person</option>
-                         <option value="2">2 People</option>
-                         <option value="3">3 People</option>
-                         <option value="4">4 People</option>
-                         <option value="5+">5+ People</option>
-                       </select>
-                    </div>
-                 </div>
-
-                {/* Search Button */}
-                <div className="md:flex-shrink-0 mt-2 md:mt-0">
-                  <button
-                    type="submit"
-                    className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-6 rounded-md transition duration-300 flex items-center justify-center"
-                  >
-                    <Search size={18} className="mr-2"/> Search
-                  </button>
-                </div>
-              </div>
-            </form>
+           {/* Text Content Overlay */}
+          <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center relative z-20 pt-16 pb-8 md:pb-0">
+             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white text-center mb-3 md:mb-6"> Discover Paradise in Andaman </h1>
+             <p className="text-base sm:text-lg md:text-xl text-white text-center max-w-2xl"> Explore pristine beaches, vibrant coral reefs, and unforgettable experiences. </p>
           </div>
         </div>
-      </section>
 
-      {/* Featured Destinations (Using Image components) */}
-      <section className="py-12 md:py-16 bg-gray-50">
+        {/* Search Form */}
+        <div className="container mx-auto px-4 relative z-30 md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-8 w-full max-w-4xl mt-[-60px] md:mt-0">
+            <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
+                <form onSubmit={handleSearch}>
+                   <div className="flex flex-col md:flex-row md:items-end gap-3 md:gap-4">
+                        {/* Destination */}
+                        <div className="flex-1 min-w-0">
+                          <label htmlFor="destination" className="block text-sm font-medium text-gray-700 mb-1"> Destination </label>
+                          <div className="flex items-center border border-gray-300 rounded-md focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 bg-white overflow-hidden">
+                            <MapPin className="ml-3 text-gray-400 flex-shrink-0 pointer-events-none" size={18} />
+                            <select id="destination" value={destination} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setDestination(e.target.value)} className="pl-2 pr-8 py-2 w-full text-sm border-none focus:ring-0 bg-transparent appearance-none truncate" style={{ backgroundImage: 'none' }}>
+                              <option value="">Anywhere</option>
+                              {featuredDestinations.map(dest => ( <option key={dest.id} value={dest.id}>{dest.name}</option> ))}
+                            </select>
+                          </div>
+                        </div>
+                        {/* Start Date */}
+                        <div className="flex-1 min-w-0">
+                           <label htmlFor="startDate" className="block text-sm font-medium text-gray-700 mb-1"> Start Date </label>
+                           <div className="flex items-center border border-gray-300 rounded-md focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 bg-white overflow-hidden">
+                               <Calendar className="ml-3 text-gray-400 flex-shrink-0 pointer-events-none" size={18} />
+                               <DatePicker selected={startDate} onChange={(date: Date | null) => setStartDate(date)} selectsStart startDate={startDate} endDate={endDate} minDate={new Date()} placeholderText="Start date" className="pl-2 pr-4 py-2 w-full text-sm border-none focus:ring-0 bg-transparent truncate" dateFormat="yyyy-MM-dd" required />
+                            </div>
+                         </div>
+                         {/* End Date */}
+                         <div className="flex-1 min-w-0">
+                           <label htmlFor="endDate" className="block text-sm font-medium text-gray-700 mb-1"> End Date </label>
+                            <div className="flex items-center border border-gray-300 rounded-md focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 bg-white overflow-hidden">
+                                <Calendar className="ml-3 text-gray-400 flex-shrink-0 pointer-events-none" size={18} />
+                                <DatePicker selected={endDate} onChange={(date: Date | null) => setEndDate(date)} selectsEnd startDate={startDate} endDate={endDate} minDate={startDate || new Date()} placeholderText="End date" className="pl-2 pr-4 py-2 w-full text-sm border-none focus:ring-0 bg-transparent truncate" dateFormat="yyyy-MM-dd" disabled={!startDate} required />
+                            </div>
+                         </div>
+                        {/* Travelers */}
+                        <div className="flex-1 min-w-0">
+                           <label htmlFor="travelers" className="block text-sm font-medium text-gray-700 mb-1"> Travelers </label>
+                           <div className="flex items-center border border-gray-300 rounded-md focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 bg-white overflow-hidden">
+                               <Users className="ml-3 text-gray-400 flex-shrink-0 pointer-events-none" size={18} />
+                               <select id="travelers" value={travelers} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTravelers(e.target.value)} required className="pl-2 pr-8 py-2 w-full text-sm border-none focus:ring-0 bg-transparent appearance-none truncate" style={{ backgroundImage: 'none' }}>
+                                 <option value="">Select</option> <option value="1">1 Person</option> <option value="2">2 People</option> <option value="3">3 People</option> <option value="4">4 People</option> <option value="5+">5+ People</option>
+                               </select>
+                            </div>
+                         </div>
+                        {/* Search Button */}
+                        <div className="md:flex-shrink-0 mt-2 md:mt-0">
+                          <button type="submit" className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-6 rounded-md transition duration-300 flex items-center justify-center">
+                            <Search size={18} className="mr-2"/> Search
+                          </button>
+                        </div>
+                   </div>
+                </form>
+            </div>
+        </div>
+
+      </section> {/* End Hero Section Container */}
+
+
+      {/* Featured Destinations */}
+      <section className="pt-16 pb-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Featured Destinations</h2>
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
              {featuredDestinations.map((destination) => (
                <div key={destination.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
                   <div className="h-48 w-full relative">
-                    <Image
-                        src={destination.image}
-                        alt={destination.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    />
+                    <Image src={destination.image} alt={destination.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"/>
                   </div>
                   <div className="p-4">
                     <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">{destination.name}</h3>
@@ -207,21 +174,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popular Activities (Using Image components) */}
+      {/* Popular Activities */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Popular Activities</h2>
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-             {popularActivities.map((activity) => (
+             {popularActivities.map((activity) => ( // Using the reverted popularActivities array
                <div key={activity.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
                  <div className="h-48 w-full relative">
-                    <Image
-                        src={activity.image}
-                        alt={activity.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    />
+                    <Image src={activity.image} alt={activity.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"/>
                   </div>
                  <div className="p-4">
                    <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">{activity.name}</h3>
