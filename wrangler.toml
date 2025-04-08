@@ -1,5 +1,7 @@
+
+name = "andaman-travel-website"
 compatibility_date = "2025-04-08"
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = [ "nodejs_compat", "nodejs_compat_populate_process_env" ]
 
 [[d1_databases]]
 binding = "DB"
@@ -10,7 +12,6 @@ database_id = "10183848-4cc7-4198-b8c7-1374015ab09c"
 command = "npm run build"
 publish = ".next" 
 
-name = "andaman-travel-website"
-compatibility_date = "2025-04-08"
+
 
 pages_build_output_dir = ".vercel/output/static"
